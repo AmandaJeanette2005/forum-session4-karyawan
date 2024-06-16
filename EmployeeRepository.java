@@ -10,8 +10,8 @@ class EmployeeRepository {
 
     private static String getCurrentDate() {
         LocalDate now = LocalDate.now();
-        DateTimeFormatter myformat = DateTimeFormatter.ofPattern("yyyyMMdd");
-        return now.format(myformat);
+        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyyMMdd");
+        return now.format(dateFormat);
     }
 
     private static String generateId() {
@@ -85,21 +85,21 @@ class EmployeeRepository {
     }
 
     public void deleteEmployee(Scanner scanner) {
-        System.out.print("Masukkan ID Employee: ");
+        System.out.print("Masukkan ID Karyawan: ");
         String id = scanner.nextLine();
 
         Employee foundEmployee = findEmployeeById(id);
         if (foundEmployee != null) {
             listEmployee.remove(foundEmployee);
 
-            System.out.println("Data Employee berhasil dihapus!");
+            System.out.println("Data Karyawan berhasil dihapus!");
         }else{
-            System.out.println("Mohon maaf data Employee tidak ditemukan!");
+            System.out.println("Mohon maaf data Karyawan tidak ditemukan!");
         }
     }
     
     public void exitApp(){
         listEmployee.clear();
-        System.out.println("Semua data Employee telah dihapus dan terima kasih telah menggunakan aplikasi pendataan kami...");
+        System.out.println("Semua data Karyawan telah dihapus dan terima kasih telah menggunakan aplikasi pendataan kami...");
     }
 }
